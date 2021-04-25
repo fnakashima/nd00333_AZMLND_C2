@@ -47,10 +47,10 @@ The [Bankmarketing dataset](https://automlsamplenotebookdata.blob.core.windows.n
 
 #### Create an AutoML and run the experiment
 An AutoML was created with the following configuration and was run. It took approximately 23 minutes.
-* Task type: Classification
-* Primary metric: AUC weighted
-* Compute target: Standard_DS12_v2 (4 cores, 28 GB RAM, 56 GB disk)
-* Minimum number of nodes: 1
+* Task type: `Classification`
+* Primary metric: `AUC weighted`
+* Compute target: `Standard_DS12_v2` (4 cores, 28 GB RAM, 56 GB disk)
+* Minimum number of nodes: `1`
 
 ![Experiment completed](/images/02_Step2_ExperimentCompletedDetails.PNG)
 
@@ -60,8 +60,8 @@ The best model was found and it was VotingEnsemble.
 
 ### Step 3: Deploy the Best Model
 The best model was deployed with the following configuration.
-* Compute type: Azure Container Instance
-* Authentication: Enabled
+* Compute type: `Azure Container Instance`
+* Authentication: `Enabled`
 ![Deploy best model](/images/03a_Step3_DeployBestModel.PNG)
 
 It was displayed in the Endpoints after the deploy.
@@ -102,3 +102,19 @@ The pipeline endpoint was scheduled in Jupyter Notebook.
 
 It was shown in the Pipeleins in ML studio.
 ![Scheduled pipeline](/images/15_Step7_PipelineScheduledRun.PNG)
+
+
+## Screen Recording
+Here is a screencast for this project.
+
+https://youtu.be/u70zz6GNxlQ
+
+
+## Future Improvements
+* Use deep learning in AutoML run to have better scores (This requires additional time and cost)
+* Increase experiment timeout duration for more training (This also requires additional time and cost)
+
+
+## Standout Suggestions
+* Apache Benchmark was used to analyse the performance of the endpoint.
+
