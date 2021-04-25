@@ -34,3 +34,71 @@ We build an Azure ML pipleine, publish and run it in Jupyter Notebook.
 
 #### Documentation
 Finally we demonstrate all our work by using this README and a short screencast. 
+
+
+## Key Steps
+### Step 1: Authentication
+In this project, this step was skipped as the lab provided by Udacity was used.
+
+### Step 2: Automated ML Experiment
+#### Create a bank marketing dataset
+The [Bankmarketing dataset](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) was used as a dataset for this project.
+![Bank marketing dataset](/images/01_Step2_RegisteredDatasets.PNG)
+
+#### Create an AutoML and run the experiment
+An AutoML was created with the following configuration and was run. It took approximately 23 minutes.
+* Task type: Classification
+* Primary metric: AUC weighted
+* Compute target: Standard_DS12_v2 (4 cores, 28 GB RAM, 56 GB disk)
+* Minimum number of nodes: 1
+
+![Experiment completed](/images/02_Step2_ExperimentCompletedDetails.PNG)
+
+#### Find the best model
+The best model was found and it was VotingEnsemble.
+![Best model](/images/03_Step2_BestModelDetails.PNG)
+
+### Step 3: Deploy the Best Model
+The best model was deployed with the following configuration.
+* Compute type: Azure Container Instance
+* Authentication: Enabled
+![Deploy best model](/images/03a_Step3_DeployBestModel.PNG)
+
+It was displayed in the Endpoints after the deploy.
+![Deployed best model](/images/03b_Step3_DeplyBestModel_Added.PNG)
+
+### Step 4: Enable Application Insights
+Application Insights was enabled by the following script.
+![Enable Application Insights](/images/04a_Step4_EnableApplicationInsights.PNG)
+
+After the run, it was enabled successfully.
+![Application Insights enabled](/images/04_Step4_EnableApplicationInsights_Enabled.PNG)
+
+Also logs were displayed by running the script as below.
+![View logs](/images/05_Step4_RunningLogs.PNG)
+
+### Step 5: Swagger Documentation
+The swagger documentation for the endpoint of the best model was successfully built by the `swagger.sh` and `serve.py`.
+![Swagger documentation](/images/06_Step5_SwaggerDocForBestModel.PNG)
+
+### Step 6: Consume Model Endpoints
+The response from the API was successfully received by running the `endpoint.py` as below.
+![API response](/images/07_Step6_ConsumeEndpoint.PNG)
+
+Additionally, the following performance results were retrieved by using Apache Benchmark.
+![Apache Benchmark 1](/images/08_Step6_ApacheBenchmark1.PNG)
+![Apache Benchmark 2](/images/09_Step6_ApacheBenchmark2.PNG)
+
+### Step 7: Create, Publish and Consume a Pipeline
+By running all the cells in `aml-pipelines-with-automated-machine-learning-step.ipynb`, the pipeline was successfully published.
+![AzureML pipeline](/images/10_Step7_PipelineEndpoint.PNG)
+
+Here is a details of the pipeline.
+![Published pipeline](/images/12_Step7_PublishedPipelineOverview.PNG)
+![Dataset with AutoML](/images/11_Step7_DatasetWithAutoML.PNG)
+
+The pipeline endpoint was scheduled in Jupyter Notebook.
+![Dataset with AutoML](/images/13_Step7_PipelineRunDetails.PNG)
+
+It was shown in the Pipeleins in ML studio.
+![Scheduled pipeline](/images/15_Step7_PipelineScheduledRun.PNG)
