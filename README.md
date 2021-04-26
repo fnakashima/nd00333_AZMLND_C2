@@ -6,9 +6,9 @@ Finally, we build an Azure ML pipeline and publish it as an endpoint to automate
 
 ## Architectural Diagram
 Here is an architectual diagram of this project.
-![Project Architectural Diagram](/images/AzureML_architecture.png)
+![Project Architectural Diagram](/images/ProjectArchitecturalDiagram.PNG)
 
-There are 7 steps in the project.
+There are 6 steps in the project.
 #### Authentication
 Setting authentication is very important for the continuous flow of operations which can automate the flows by removing human interaction.
 Azure Kubernetes service and Azure Container Instances are avalialbe for this purpose.
@@ -31,9 +31,6 @@ We also build a web based documentation of the API by using Swagger.
 #### Create and publish a pipeline
 Published pipelines allow external services to interact with them so that they can do work more efficiently.
 We build an Azure ML pipleine, publish and run it in Jupyter Notebook.
-
-#### Documentation
-Finally we demonstrate all our work by using this README and a short screencast. 
 
 
 ## Key Steps
@@ -102,6 +99,9 @@ The pipeline endpoint was scheduled in Jupyter Notebook.
 
 It was shown in the Pipeleins in ML studio.
 ![Scheduled pipeline](/images/15_Step7_PipelineScheduledRun.PNG)
+
+The experiment was completed.
+![Pipeline experiment completed](/images/16_Step7_PipelineExperimentRunCompleted.PNG)
 
 
 ## Screen Recording
